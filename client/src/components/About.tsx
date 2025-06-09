@@ -51,8 +51,8 @@ const About = () => {
 
   return (
     <section id="sobre" className="py-20 bg-gray-50" ref={sectionRef}>
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-8 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Content */}
           <div className="space-y-8">
             <div>
@@ -104,34 +104,45 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Stats */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
-            <div className="grid grid-cols-1 gap-8">
+            {/* Stats - Movido para baixo */}
+            <div className="grid grid-cols-3 gap-6 mt-12">
               <div className="text-center">
-                <div className="text-5xl font-bold text-red-600 mb-2">
+                <div className="text-4xl font-bold text-red-600 mb-2">
                   {counts.years}+
                 </div>
-                <div className="text-gray-700 font-medium">Anos de Experiência</div>
+                <div className="text-gray-700 font-medium text-sm">Anos de Experiência</div>
               </div>
 
               <div className="text-center">
-                <div className="text-5xl font-bold text-red-600 mb-2">
+                <div className="text-4xl font-bold text-red-600 mb-2">
                   {counts.projects}+
                 </div>
-                <div className="text-gray-700 font-medium">Projetos Concluídos</div>
+                <div className="text-gray-700 font-medium text-sm">Projetos Concluídos</div>
               </div>
 
               <div className="text-center">
-                <div className="text-5xl font-bold text-red-600 mb-2">
+                <div className="text-4xl font-bold text-red-600 mb-2">
                   {counts.clients}+
                 </div>
-                <div className="text-gray-700 font-medium">Clientes Satisfeitos</div>
+                <div className="text-gray-700 font-medium text-sm">Clientes Satisfeitos</div>
               </div>
             </div>
+          </div>
 
-            <div className="mt-8 p-6 bg-red-50 rounded-xl">
+          {/* Image Block - Reformulado */}
+          <div className="lg:pl-8">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/4039f3a1-78ba-4136-942a-a2370fc8c4cb.png" 
+                alt="Mardon Construtora - Construção Civil" 
+                className="w-full h-96 object-cover rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl"></div>
+            </div>
+
+            <div className="mt-8 p-6 bg-white rounded-xl shadow-lg">
               <Award className="text-red-600 mb-4" size={32} />
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Certificação e Qualidade

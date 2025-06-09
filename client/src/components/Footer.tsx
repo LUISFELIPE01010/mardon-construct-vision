@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white py-16">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
@@ -76,7 +76,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">
-            © 2024 Mardon Construtora. Todos os direitos reservados.
+            © 2025 Mardon Construtora. Todos os direitos reservados.
           </p>
           
           <div className="flex items-center space-x-6">

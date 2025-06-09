@@ -27,9 +27,9 @@ const Header = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
     }`}>
-      <nav className="container mx-auto px-6 py-2">
+      <nav className="container mx-auto px-8 py-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center pl-4">
             <img 
               src="/lovable-uploads/4039f3a1-78ba-4136-942a-a2370fc8c4cb.png" 
               alt="Mardon Construtora" 
@@ -37,14 +37,14 @@ const Header = () => {
             />
           </div>
 
-          {/* Desktop Menu - Centralizado */}
-          <div className="hidden lg:flex items-center justify-center flex-1">
-            <div className="flex items-center space-x-8">
+          {/* Desktop Menu - Perfeitamente Centralizado */}
+          <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
+            <div className="flex items-center space-x-10">
               {['servicos', 'projetos', 'contato'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 capitalize"
+                  className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 capitalize text-lg"
                 >
                   {item === 'servicos' ? 'Serviços' : 
                    item === 'projetos' ? 'Projetos' : 'Contato'}
