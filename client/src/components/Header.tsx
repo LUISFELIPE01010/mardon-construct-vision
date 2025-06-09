@@ -31,7 +31,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center pl-4">
             <img 
-              src="/lovable-uploads/4039f3a1-78ba-4136-942a-a2370fc8c4cb.png" 
+              src="/logo.png" 
               alt="Mardon Construtora" 
               className="h-14 w-auto"
             />
