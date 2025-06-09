@@ -1,11 +1,11 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -160,4 +160,86 @@ textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid #C62828;
   outline-offset: 2px;
+}
+
+/* Mobile optimization and scroll fixes */
+@media (max-width: 768px) {
+  html {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  
+  body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Fix mobile scroll performance */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Improve touch targets */
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Reduce motion for better mobile performance */
+  .animate-fadeInUp,
+  .animate-fadeIn {
+    animation-duration: 0.3s;
+  }
+}
+
+/* Image lazy loading optimization */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Prevent layout shift during image loading */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Enhanced responsive breakpoints */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Performance optimization for mobile */
+@media (max-width: 768px) {
+  /* Disable transform animations on mobile for better performance */
+  .hover\:scale-105:hover,
+  .hover\:-translate-y-2:hover,
+  .transform {
+    transform: none !important;
+  }
+  
+  /* Simplify shadows on mobile */
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
 }
