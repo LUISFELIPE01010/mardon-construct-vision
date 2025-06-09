@@ -1,10 +1,6 @@
-
-import React, { useState } from 'react';
-import { Play, X } from 'lucide-react';
+import React from 'react';
 
 const VideoSection = () => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-
   return (
     <section id="video" className="py-20 bg-gray-50">
       <div className="container mx-auto px-8 lg:px-12">
@@ -20,25 +16,25 @@ const VideoSection = () => {
 
         <div className="relative max-w-5xl mx-auto">
           <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-            {/* Video Thumbnail */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: 'url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80")'
-              }}
+            {/* Auto-playing video */}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             >
-              <div className="absolute inset-0 bg-black/40"></div>
-            </div>
-
-            {/* Play Button */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button
-                onClick={() => setIsVideoOpen(true)}
-                className="group bg-red-600 hover:bg-red-700 text-white p-6 rounded-full transition-all duration-300 transform hover:scale-110 shadow-xl"
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+              {/* Fallback image if video doesn't load */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: 'url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80")'
+                }}
               >
-                <Play className="w-12 h-12 ml-1" fill="currentColor" />
-              </button>
-            </div>
+                <div className="absolute inset-0 bg-black/40"></div>
+              </div>
+            </video>
 
             {/* Video Overlay Info */}
             <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
@@ -60,25 +56,6 @@ const VideoSection = () => {
           <cite className="text-red-600 font-semibold mt-4 block">Mardon Construtora</cite>
         </div>
       </div>
-
-      {/* Video Modal */}
-      {isVideoOpen && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-6xl aspect-video">
-            <button
-              onClick={() => setIsVideoOpen(false)}
-              className="absolute -top-12 right-0 text-white hover:text-red-500 transition-colors duration-200"
-            >
-              <X size={32} />
-            </button>
-            <div className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center">
-              <p className="text-white text-xl">
-                Vídeo institucional da Mardon Construtora
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

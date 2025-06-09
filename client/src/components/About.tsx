@@ -51,7 +51,7 @@ const About = () => {
 
   return (
     <section id="sobre" className="py-20 bg-gray-50" ref={sectionRef}>
-      <div className="container mx-auto px-8 lg:px-12">
+      <div className="container mx-auto px-12 lg:px-20">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Content */}
           <div className="space-y-8">
