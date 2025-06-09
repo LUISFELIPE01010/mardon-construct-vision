@@ -176,7 +176,10 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white mb-1">Telefone</h4>
-                      <a href="tel:+551122914980" className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer">
+                      <a 
+                        href="tel:+551122914980" 
+                        className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer hover:underline"
+                      >
                         (11) 2291-4980
                       </a>
                     </div>
@@ -191,7 +194,10 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white mb-1">E-mail</h4>
-                      <a href="mailto:orcamento@mardon.com.br" className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer">
+                      <a 
+                        href="mailto:orcamento@mardon.com.br" 
+                        className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer hover:underline"
+                      >
                         orcamento@mardon.com.br
                       </a>
                     </div>
@@ -205,7 +211,12 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-white mb-1">Instagram</h4>
-                      <a href="https://instagram.com/mardon_construtora" target="_blank" rel="noopener noreferrer" className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer">
+                      <a 
+                        href="https://instagram.com/mardon_construtora" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer hover:underline"
+                      >
                         @mardon_construtora
                       </a>
                     </div>
@@ -223,7 +234,7 @@ const Contact = () => {
                         href="https://maps.google.com/?q=R.+Altinópolis,+410+-+Água+Fria,+São+Paulo+-+SP,+02334-001" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer"
+                        className="text-red-100 hover:text-white transition-colors duration-200 cursor-pointer hover:underline"
                       >
                         R. Altinópolis, 410 - Água Fria<br/>
                         São Paulo - SP, 02334-001
