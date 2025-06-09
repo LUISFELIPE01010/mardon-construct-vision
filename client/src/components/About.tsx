@@ -134,9 +134,10 @@ const About = () => {
           <div className="lg:pl-8">
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <img 
-                src="/attached_assets/Design sem nome (76)_1749512888056.png" 
+                src="/foto.png" 
                 alt="Mardon Construtora - Projetos de Construção" 
                 className="w-full h-[500px] object-cover"
+                loading="lazy"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
                 }}
