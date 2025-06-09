@@ -130,26 +130,37 @@ const About = () => {
             </div>
           </div>
 
-          {/* Image Block - Reformulado */}
+          {/* Image Block */}
           <div className="lg:pl-8">
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <img 
-                src="../attached_assets/Design sem nome (76)_1749512888056.png" 
-                alt="Mardon Construtora - Construção Civil" 
-                className="w-full h-96 object-cover rounded-2xl shadow-lg"
-                loading="lazy"
+                src="/attached_assets/Design sem nome (76)_1749512888056.png" 
+                alt="Mardon Construtora - Projetos de Construção" 
+                className="w-full h-[500px] object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <h3 className="text-2xl font-bold mb-2">Excelência em Construção</h3>
+                <p className="text-white/90">Projetos executados com precisão e qualidade</p>
+              </div>
             </div>
 
-            <div className="mt-8 p-6 bg-white rounded-xl shadow-lg">
-              <Award className="text-red-600 mb-4" size={32} />
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Certificação e Qualidade
-              </h3>
-              <p className="text-gray-600">
-                Empresa certificada com os mais altos padrões de qualidade e segurança do setor.
-              </p>
+            <div className="mt-8 p-6 bg-white rounded-xl shadow-lg border-l-4 border-red-600">
+              <div className="flex items-start space-x-4">
+                <Award className="text-red-600 mt-1 flex-shrink-0" size={28} />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Certificação e Qualidade
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Empresa certificada com os mais altos padrões de qualidade e segurança do setor da construção civil.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
