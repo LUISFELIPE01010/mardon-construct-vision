@@ -52,23 +52,12 @@ const VideoSection = () => {
           </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto">
-          {[
-            { number: '15+', label: 'Anos de Experiência' },
-            { number: '200+', label: 'Obras Concluídas' },
-            { number: '50+', label: 'Profissionais Especializados' },
-            { number: '100%', label: 'Satisfação do Cliente' }
-          ].map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2 group-hover:scale-110 transition-transform duration-300">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+        {/* Inspirational Quote */}
+        <div className="text-center mt-16 max-w-3xl mx-auto">
+          <blockquote className="text-2xl md:text-3xl font-light text-gray-700 italic leading-relaxed">
+            "Cada projeto é uma oportunidade de transformar sonhos em realidade sólida"
+          </blockquote>
+          <cite className="text-red-600 font-semibold mt-4 block">Mardon Construtora</cite>
         </div>
       </div>
 

@@ -14,7 +14,7 @@ const Hero = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
            style={{
-             backgroundImage: 'url("/lovable-uploads/f7668848-27fc-4899-bc94-200f5d4bfff5.png")'
+             backgroundImage: 'url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80")'
            }}>
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
@@ -48,13 +48,6 @@ const Hero = () => {
             >
               Conheça Nosso Trabalho
             </button>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </div>

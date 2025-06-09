@@ -9,21 +9,18 @@ const Testimonials = () => {
       name: 'Carlos Silva',
       role: 'Proprietário Residencial',
       content: 'A Mardon Construtora superou todas as nossas expectativas. Entregaram nossa casa dos sonhos no prazo e com qualidade impecável. Recomendo a todos!',
-      rating: 5,
       project: 'Casa Residencial - 250m²'
     },
     {
       name: 'Maria Santos',
       role: 'Diretora Comercial',
       content: 'Profissionalismo exemplar desde o primeiro contato. O edifício comercial foi entregue dentro do cronograma e orçamento. Parceria de confiança.',
-      rating: 5,
       project: 'Edifício Comercial - 15 andares'
     },
     {
       name: 'João Oliveira',
       role: 'Empresário Industrial',
       content: 'Execução perfeita do nosso galpão industrial. Equipe técnica competente e comunicação transparente em todas as etapas do projeto.',
-      rating: 5,
       project: 'Galpão Industrial - 3000m²'
     }
   ];
@@ -51,8 +48,8 @@ const Testimonials = () => {
         {/* Main Testimonial */}
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
-            <div className="absolute top-0 left-8 w-16 h-16 bg-red-600 rounded-full flex items-center justify-center -mt-8">
-              <span className="text-white text-3xl font-bold">"</span>
+            <div className="absolute top-0 left-8 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center -mt-4">
+              <span className="text-white text-lg font-bold">"</span>
             </div>
             
             <div className="mt-8">
@@ -69,12 +66,6 @@ const Testimonials = () => {
                   <p className="text-sm text-red-600 font-semibold">
                     {testimonials[currentTestimonial].project}
                   </p>
-                </div>
-                
-                <div className="flex space-x-1">
-                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-2xl">★</span>
-                  ))}
                 </div>
               </div>
             </div>

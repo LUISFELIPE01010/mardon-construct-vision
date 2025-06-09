@@ -1,16 +1,65 @@
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const About = () => {
+  const [counts, setCounts] = useState({ years: 0, projects: 0, satisfaction: 0, hours: 0 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const finalValues = { years: 15, projects: 200, satisfaction: 100, hours: 24 };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          animateCounters();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  const animateCounters = () => {
+    const duration = 2000;
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+
+      setCounts({
+        years: Math.floor(finalValues.years * progress),
+        projects: Math.floor(finalValues.projects * progress),
+        satisfaction: Math.floor(finalValues.satisfaction * progress),
+        hours: Math.floor(finalValues.hours * progress)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCounts(finalValues);
+      }
+    }, stepDuration);
+  };
+
   const stats = [
-    { number: '15+', label: 'Anos de Experiência' },
-    { number: '200+', label: 'Obras Concluídas' },
-    { number: '100%', label: 'Satisfação do Cliente' },
-    { number: '24h', label: 'Atendimento Disponível' }
+    { number: `${counts.years}+`, label: 'Anos de Experiência' },
+    { number: `${counts.projects}+`, label: 'Obras Concluídas' },
+    { number: `${counts.satisfaction}%`, label: 'Satisfação do Cliente' },
+    { number: `${counts.hours}h`, label: 'Atendimento Disponível' }
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-white">
+    <section id="sobre" className="py-20 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -60,7 +109,7 @@ const About = () => {
             {/* Stats Cards */}
             <div className="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-xl p-6 border">
               <div className="text-center">
-                <div className="text-3xl font-bold text-red-600">200+</div>
+                <div className="text-3xl font-bold text-red-600">{counts.projects}+</div>
                 <div className="text-sm text-gray-600">Obras Entregues</div>
               </div>
             </div>

@@ -33,24 +33,20 @@ const Header = () => {
             <img 
               src="/lovable-uploads/2baee49a-3e97-4395-8ca0-a9d504d0d90d.png" 
               alt="Mardon Construtora" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-8">
-            {['sobre', 'servicos', 'video', 'projetos', 'galeria', 'depoimentos', 'contato'].map((item) => (
+            {['servicos', 'projetos', 'contato'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
                 className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 capitalize"
               >
-                {item === 'sobre' ? 'Sobre Nós' : 
-                 item === 'servicos' ? 'Serviços' : 
-                 item === 'video' ? 'Vídeo' :
-                 item === 'projetos' ? 'Projetos' : 
-                 item === 'galeria' ? 'Galeria' :
-                 item === 'depoimentos' ? 'Depoimentos' : 'Contato'}
+                {item === 'servicos' ? 'Serviços' : 
+                 item === 'projetos' ? 'Projetos' : 'Contato'}
               </button>
             ))}
             <button
@@ -74,18 +70,14 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4 pt-4">
-              {['sobre', 'servicos', 'video', 'projetos', 'galeria', 'depoimentos', 'contato'].map((item) => (
+              {['servicos', 'projetos', 'contato'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
                   className="text-left text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 capitalize"
                 >
-                  {item === 'sobre' ? 'Sobre Nós' : 
-                   item === 'servicos' ? 'Serviços' : 
-                   item === 'video' ? 'Vídeo' :
-                   item === 'projetos' ? 'Projetos' : 
-                   item === 'galeria' ? 'Galeria' :
-                   item === 'depoimentos' ? 'Depoimentos' : 'Contato'}
+                  {item === 'servicos' ? 'Serviços' : 
+                   item === 'projetos' ? 'Projetos' : 'Contato'}
                 </button>
               ))}
               <button
