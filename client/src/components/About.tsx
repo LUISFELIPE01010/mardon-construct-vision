@@ -134,7 +134,7 @@ const About = () => {
           <div className="lg:pl-8">
             <div className="relative">
               <img 
-                src="/mockup.png" 
+                src="/foto.png" 
                 alt="Mardon Construtora - Construção Civil" 
                 className="w-full h-96 object-cover rounded-2xl shadow-lg"
                 loading="lazy"
