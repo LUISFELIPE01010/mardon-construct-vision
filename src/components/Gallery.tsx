@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const Gallery = () => {
@@ -38,6 +38,15 @@ const Gallery = () => {
       category: "Institucional"
     }
   ];
+
+  // Auto-slide effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % Math.ceil(images.length / 3));
+    }, 6000); // 6 segundos de intervalo
+
+    return () => clearInterval(timer);
+  }, [images.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % Math.ceil(images.length / 3));

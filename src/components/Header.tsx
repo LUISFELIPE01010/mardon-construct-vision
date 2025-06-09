@@ -31,24 +31,30 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/2baee49a-3e97-4395-8ca0-a9d504d0d90d.png" 
+              src="/lovable-uploads/4039f3a1-78ba-4136-942a-a2370fc8c4cb.png" 
               alt="Mardon Construtora" 
-              className="h-16 w-auto"
+              className="h-20 w-auto"
             />
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {['servicos', 'projetos', 'contato'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 capitalize"
-              >
-                {item === 'servicos' ? 'Serviços' : 
-                 item === 'projetos' ? 'Projetos' : 'Contato'}
-              </button>
-            ))}
+          {/* Desktop Menu - Centralizado */}
+          <div className="hidden lg:flex items-center justify-center flex-1">
+            <div className="flex items-center space-x-8">
+              {['servicos', 'projetos', 'contato'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="text-gray-700 hover:text-red-600 font-medium transition-colors duration-200 capitalize"
+                >
+                  {item === 'servicos' ? 'Serviços' : 
+                   item === 'projetos' ? 'Projetos' : 'Contato'}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden lg:block">
             <button
               onClick={() => scrollToSection('contato')}
               className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium"

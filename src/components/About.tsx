@@ -1,22 +1,21 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Award, Users, Clock, CheckCircle } from 'lucide-react';
 
 const About = () => {
-  const [counts, setCounts] = useState({ years: 0, projects: 0, satisfaction: 0, hours: 0 });
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [counts, setCounts] = useState({ years: 0, projects: 0, clients: 0 });
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  const finalValues = { years: 15, projects: 200, satisfaction: 100, hours: 24 };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
           animateCounters();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -24,106 +23,124 @@ const About = () => {
     }
 
     return () => observer.disconnect();
-  }, [hasAnimated]);
+  }, [isVisible]);
 
   const animateCounters = () => {
-    const duration = 2000;
+    const targets = { years: 15, projects: 250, clients: 300 };
+    const duration = 3000; // Aumentado de 2000 para 3000ms para tornar mais lento
     const steps = 60;
     const stepDuration = duration / steps;
 
     let currentStep = 0;
-
     const timer = setInterval(() => {
       currentStep++;
       const progress = currentStep / steps;
-
+      
       setCounts({
-        years: Math.floor(finalValues.years * progress),
-        projects: Math.floor(finalValues.projects * progress),
-        satisfaction: Math.floor(finalValues.satisfaction * progress),
-        hours: Math.floor(finalValues.hours * progress)
+        years: Math.floor(targets.years * progress),
+        projects: Math.floor(targets.projects * progress),
+        clients: Math.floor(targets.clients * progress)
       });
 
       if (currentStep >= steps) {
         clearInterval(timer);
-        setCounts(finalValues);
+        setCounts(targets);
       }
     }, stepDuration);
   };
 
-  const stats = [
-    { number: `${counts.years}+`, label: 'Anos de Experiência' },
-    { number: `${counts.projects}+`, label: 'Obras Concluídas' },
-    { number: `${counts.satisfaction}%`, label: 'Satisfação do Cliente' },
-    { number: `${counts.hours}h`, label: 'Atendimento Disponível' }
-  ];
-
   return (
-    <section id="sobre" className="py-20 bg-white" ref={sectionRef}>
+    <section id="sobre" className="py-20 bg-gray-50" ref={sectionRef}>
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Sobre a 
-                <span className="text-red-600"> Mardon Construtora</span>
+                Sobre a <span className="text-red-600">Mardon</span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Com mais de 15 anos de experiência no mercado da construção civil, 
-                a Mardon Construtora se consolidou como referência em São Paulo, 
-                oferecendo soluções completas em engenharia e construção.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Nossa missão é entregar projetos de excelência, respeitando prazos 
-                e orçamentos, sempre com transparência e comunicação clara com nossos clientes.
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                Há mais de uma década no mercado, a Mardon Construtora é sinônimo de 
+                excelência em execução de obras civis. Nossa expertise combina tradição 
+                e inovação para entregar projetos que superam expectativas.
               </p>
             </div>
 
             {/* Values */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { title: 'Qualidade', desc: 'Materiais premium e técnicas avançadas' },
-                { title: 'Prazo', desc: 'Compromisso rigoroso com cronogramas' },
-                { title: 'Transparência', desc: 'Comunicação clara em todas as etapas' }
-              ].map((value, index) => (
-                <div key={index} className="text-center p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-shadow duration-300">
-                  <h4 className="font-semibold text-gray-900 mb-2">{value.title}</h4>
-                  <p className="text-sm text-gray-600">{value.desc}</p>
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <CheckCircle className="text-red-600 mt-1 flex-shrink-0" size={24} />
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Engenharia de Qualidade
+                  </h3>
+                  <p className="text-gray-600">
+                    Processos rigorosos e tecnologia de ponta garantem a máxima qualidade em cada projeto.
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Obra da Mardon Construtora"
-                className="w-full h-96 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-            
-            {/* Stats Cards */}
-            <div className="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-xl p-6 border">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-red-600">{counts.projects}+</div>
-                <div className="text-sm text-gray-600">Obras Entregues</div>
+              <div className="flex items-start space-x-4">
+                <Clock className="text-red-600 mt-1 flex-shrink-0" size={24} />
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Compromisso com o Prazo
+                  </h3>
+                  <p className="text-gray-600">
+                    Planejamento detalhado e gestão eficiente para entregas sempre no prazo estabelecido.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <Users className="text-red-600 mt-1 flex-shrink-0" size={24} />
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Atendimento Transparente
+                  </h3>
+                  <p className="text-gray-600">
+                    Comunicação clara e transparente em todas as etapas do projeto.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Stats Grid */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">{stat.number}</div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+          {/* Stats */}
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="grid grid-cols-1 gap-8">
+              <div className="text-center">
+                <div className="text-5xl font-bold text-red-600 mb-2">
+                  {counts.years}+
+                </div>
+                <div className="text-gray-700 font-medium">Anos de Experiência</div>
+              </div>
+
+              <div className="text-center">
+                <div className="text-5xl font-bold text-red-600 mb-2">
+                  {counts.projects}+
+                </div>
+                <div className="text-gray-700 font-medium">Projetos Concluídos</div>
+              </div>
+
+              <div className="text-center">
+                <div className="text-5xl font-bold text-red-600 mb-2">
+                  {counts.clients}+
+                </div>
+                <div className="text-gray-700 font-medium">Clientes Satisfeitos</div>
+              </div>
             </div>
-          ))}
+
+            <div className="mt-8 p-6 bg-red-50 rounded-xl">
+              <Award className="text-red-600 mb-4" size={32} />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Certificação e Qualidade
+              </h3>
+              <p className="text-gray-600">
+                Empresa certificada com os mais altos padrões de qualidade e segurança do setor.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
