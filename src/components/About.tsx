@@ -27,7 +27,7 @@ const About = () => {
 
   const animateCounters = () => {
     const targets = { years: 15, projects: 250, clients: 300 };
-    const duration = 3000; // Aumentado de 2000 para 3000ms para tornar mais lento
+    const duration = 3000;
     const steps = 60;
     const stepDuration = duration / steps;
 
