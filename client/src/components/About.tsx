@@ -137,7 +137,7 @@ const About = () => {
             {/* Main Image */}
             <div className="rounded-2xl shadow-xl overflow-hidden bg-gray-200">
               <img 
-                src={Design_sem_nome__76_} 
+                src="/mardon.png" 
                 alt="Mardon Construtora - Projetos de Construção" 
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
