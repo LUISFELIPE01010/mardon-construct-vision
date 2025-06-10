@@ -132,26 +132,33 @@ const About = () => {
 
           {/* Image Block */}
           <div className="lg:pl-8">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl">
+            {/* Main Image */}
+            <div className="rounded-2xl shadow-xl overflow-hidden bg-gray-200">
               <img 
-                src="/foto.png" 
+                src="/mardon.png" 
                 alt="Mardon Construtora - Projetos de Construção" 
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
-                onError={(e) => {
-                  console.error('Erro ao carregar a imagem foto.png');
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
-                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-              
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Excelência em Construção</h3>
-                <p className="text-white/90">Projetos executados com precisão e qualidade</p>
+            </div>
+
+            {/* Description Card */}
+            <div className="mt-6 p-6 bg-white rounded-xl shadow-lg border-l-4 border-red-600">
+              <div className="flex items-start space-x-4">
+                <Award className="text-red-600 mt-1 flex-shrink-0" size={28} />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Excelência em Construção
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Projetos executados com precisão e qualidade, sempre seguindo os mais altos padrões de segurança do setor da construção civil.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-white rounded-xl shadow-lg border-l-4 border-red-600">
+            {/* Quality Card */}
+            <div className="mt-4 p-6 bg-white rounded-xl shadow-lg border-l-4 border-red-600">
               <div className="flex items-start space-x-4">
                 <Award className="text-red-600 mt-1 flex-shrink-0" size={28} />
                 <div>
