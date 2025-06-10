@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, Users, Clock, CheckCircle } from 'lucide-react';
 
+import Design_sem_nome__76_ from "@assets/Design sem nome (76).png";
+
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState({ years: 0, projects: 0, clients: 0 });
@@ -135,7 +137,7 @@ const About = () => {
             {/* Main Image */}
             <div className="rounded-2xl shadow-xl overflow-hidden bg-gray-200">
               <img 
-                src="/mardon.png" 
+                src={Design_sem_nome__76_} 
                 alt="Mardon Construtora - Projetos de Construção" 
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
