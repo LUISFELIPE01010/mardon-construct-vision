@@ -137,15 +137,17 @@ const About = () => {
             {/* Main Image */}
             <div className="rounded-2xl shadow-xl overflow-hidden bg-gray-200">
               <img 
-                src="/mardon.png" 
+                src="/foto.png" 
                 alt="Mardon Construtora - Projetos de Construção" 
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
-                onLoad={() => console.log('Mardon image loaded successfully')}
+                onLoad={() => console.log('foto.png loaded successfully')}
                 onError={(e) => {
-                  console.error('Failed to load mardon.png:', e);
-                  console.log('Image src:', e.currentTarget.src);
-                  console.log('Full URL:', window.location.origin + '/mardon.png');
+                  console.error('Failed to load foto.png - file does not exist in client/public/');
+                  console.log('Available images: logo.png, mardon.png, placeholder.svg');
+                  console.log('To fix: Add foto.png to client/public/ directory');
+                  // Fallback to mardon.png which exists
+                  e.currentTarget.src = '/mardon.png';
                 }}
               />
             </div>
