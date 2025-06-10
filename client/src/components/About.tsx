@@ -141,6 +141,12 @@ const About = () => {
                 alt="Mardon Construtora - Projetos de Construção" 
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
+                onLoad={() => console.log('Mardon image loaded successfully')}
+                onError={(e) => {
+                  console.error('Failed to load mardon.png:', e);
+                  console.log('Image src:', e.currentTarget.src);
+                  console.log('Full URL:', window.location.origin + '/mardon.png');
+                }}
               />
             </div>
 
