@@ -138,9 +138,6 @@ const About = () => {
                 alt="Mardon Construtora - Projetos de Construção" 
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               
